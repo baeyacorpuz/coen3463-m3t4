@@ -23,21 +23,27 @@ block content
                 img.img-responsive(src='#{blob.image}', alt='image', style="width:250px;height:380px;")
               .tm-home-box-3-info
                 p.tm-home-box-3-description
-                  | Locale: #{blob.locale}
+                  | Department: #{blob.department}
                   br
-                  | President: #{blob.president}
+                  | Name: #{blob.name}
                   br
-                  | Established: #{blob.established}
+                  | Contact: #{blob.contact}
                   br
-                  | Population: #{blob.population}
+                  | Email: #{blob.email}
                   br
-                  | Website: #{blob.website}
+                  | Twitter: #{blob.twitter}
                   br
-                  | Social-Page: #{blob.social}
+                  | Facebook: #{blob.facebook}
+                  br
+                  | Description: #{blob.description}
+                  br
+                  | Remarks: #{blob.remarks}
+                  br
+                  | Instructions: #{blob.instructions}
                   br
                   | Date and Time: #{blob.dob}
                 .tm-home-box-2-container
-                  a.tm-home-box-2-link(href='#{blob.website}')
+                  a.tm-home-box-2-link(href='#{blob.facebook}')
                     i.fa.fa-globe.tm-home-box-2-icon.border-right
                   a.tm-home-box-2-link(href='/blobs/#{blob._id}')
                     span.tm-home-box-2-description.box-3 #{blob.name}

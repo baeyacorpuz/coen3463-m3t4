@@ -37,27 +37,30 @@ router.route('/')
     })
 
     .post(function(req, res) {
+        var department = req.body.department;
         var name = req.body.name;
-        var locale = req.body.locale;
-        var president = req.body.president;
-        var established = req.body.established;
-        var population = req.body.population;
-        var website = req.body.website;
-        var social = req.body.social;
-        var image = req.body.image;
+        var contact = req.body.contact;
+        var email = req.body.email;
+        var twitter = req.body.twitter;
+        var facebook = req.body.facebook;
+        var description = req.body.description;
+        var remarks = req.body.remarks;
+        var instructions = req.body.instructions;
         var dob = req.body.dob;
 
 
         mongoose.model('Blob').create({
-            name : name,
-            locale: locale,
-            president: president,
-            established: established,
-            population: population,
-            website: website,
-            social: social,
-            image: image,
-            dob : dob,
+            department: department,
+            name: name,
+            contact: contact,
+            email: email,
+            twitter: twitter,
+            facebook: facebook,
+            description: description,
+            remarks: remarks,
+            instructions: instructions,
+            dob: dob,
+
 
         }, function (err, blob) {
               if (err) {
@@ -156,14 +159,15 @@ router.route('/:id/edit')
   })
 
   .put(function(req, res) {
+      var department = req.body.department;
       var name = req.body.name;
-      var locale = req.body.locale;
-      var president = req.body.president;
-      var established = req.body.established;
-      var population = req.body.population;
-      var website = req.body.website;
-      var social = req.body.social;
-      var image = req.body.image;
+      var contact = req.body.contact;
+      var email = req.body.email;
+      var twitter = req.body.twitter;
+      var facebook = req.body.facebook;
+      var description = req.body.description;
+      var remarks = req.body.remarks;
+      var instructions = req.body.instructions;
       var dob = req.body.dob;
 
 
@@ -171,15 +175,16 @@ router.route('/:id/edit')
 
       mongoose.model('Blob').findById(req.id, function (err, blob) {
           blob.update({
-              name : name,
-              locale: locale,
-              president: president,
-              established: established,
-              population: population,
-              website: website,
-              social: social,
-              image: image,
-              dob : dob,
+              department: department,
+              name: name,
+              contact: contact,
+              email: email,
+              twitter: twitter,
+              facebook: facebook,
+              description: description,
+              remarks: remarks,
+              instructions: instructions,
+              dob: dob,
 
           }, function (err, blobID) {
             if (err) {

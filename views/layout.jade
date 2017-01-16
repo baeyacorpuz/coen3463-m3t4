@@ -1,54 +1,63 @@
 doctype html
+//if lt IE 7 
+  html.ie.ie6(lang='en')  
+//if IE 7 
+  html.ie.ie7(lang='en')  
+//if IE 8 
+  html.ie.ie8(lang='en')  
+// [if (gte IE 9)|!(IE)] <!
 html(lang='en')
+  // <![endif]
   head
-    meta(charset='UTF-8')
-    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
-    title Uni Crud App
-    // Google fonts
-    link(href='http://fonts.googleapis.com/css?family=Roboto:400,300,700', rel='stylesheet', type='text/css')
-    // font awesome
-    link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
-    // bootstrap
-    link(rel='stylesheet', href='assets/bootstrap/css/bootstrap.min.css')
-    // animate.css
-    link(rel='stylesheet', href='assets/animate/animate.css')
-    link(rel='stylesheet', href='assets/animate/set.css')
-    // gallery
-    link(rel='stylesheet', href='assets/gallery/blueimp-gallery.min.css')
-    // favicon
-    link(rel='shortcut icon', href='images/favicon.ico', type='image/x-icon')
-    link(rel='icon', href='images/favicon.ico', type='image/x-icon')
-    link(rel='stylesheet', href='assets/style.css')
-    
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    //if IE
+      meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title Philippine Emergency Hotline 
+
+    link(href='css/bootstrap.css', rel='stylesheet')
+    link(href='css/font-awesome.min.css', rel='stylesheet')
+    link(href='css/font-awesome-animation.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
+    link(href='assets/style.css', rel='stylesheet')
+    link(href='assets/animate/animate.css', rel='stylesheet')
+    link(href='assets/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    // GOOGLE FONT
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet', type='text/css')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
   body
-    .topbar.animated.fadeInLeftBig
-        // Header Starts
-        .navbar-wrapper
-          .container
-            #top-nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
-              .container
-                .navbar-header
-                  // Logo Starts
-                  a.navbar-brand(href='/')
-                    img(src='images/logo.png', alt='logo')
-                  // #Logo Ends
-                  button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-                    span.sr-only Toggle navigation
-                    span.icon-bar
-                    span.icon-bar
-                    span.icon-bar
-                // Nav Starts
-                .navbar-collapse.collapse
-                  ul.nav.navbar-nav.navbar-right.scroll
-                    li.active
-                      a(href='/') Home
-                    li
-                      a(href='/#about') About
-                    li
-                      a(href='#') Team13
-                    
-                // #Nav Ends
-    // #Header Starts
-    // works
+    // NAV SECTION
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') RED 4LERT
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a.external(href='/') HOME
+            li
+              a.external(href='/blobs/new') HOTLINES
+    // END NAV SECTION
+
     block content
+
+    // FOOTER SECTION
+    #footer
+      | 2017 Module 3 | Software Engineering | Team 4 | CORPUZ | VILLANUEVA
+    // END FOOTER SECTION
+    // JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME
+    // CORE JQUERY
+    script(src='plugins/jquery-1.10.2.js')
+    // BOOTSTRAP CORE SCRIPT
+    script(src='plugins/bootstrap.js')
+    // CUSTOM SCRIPTS
+    script(src='js/custom.js')
