@@ -40,9 +40,6 @@ router.route('/')
         var department = req.body.department;
         var name = req.body.name;
         var contact = req.body.contact;
-        var email = req.body.email;
-        var twitter = req.body.twitter;
-        var facebook = req.body.facebook;
         var description = req.body.description;
         var remarks = req.body.remarks;
         var instructions = req.body.instructions;
@@ -53,9 +50,6 @@ router.route('/')
             department: department,
             name: name,
             contact: contact,
-            email: email,
-            twitter: twitter,
-            facebook: facebook,
             description: description,
             remarks: remarks,
             instructions: instructions,
@@ -162,9 +156,6 @@ router.route('/:id/edit')
       var department = req.body.department;
       var name = req.body.name;
       var contact = req.body.contact;
-      var email = req.body.email;
-      var twitter = req.body.twitter;
-      var facebook = req.body.facebook;
       var description = req.body.description;
       var remarks = req.body.remarks;
       var instructions = req.body.instructions;
@@ -178,9 +169,6 @@ router.route('/:id/edit')
               department: department,
               name: name,
               contact: contact,
-              email: email,
-              twitter: twitter,
-              facebook: facebook,
               description: description,
               remarks: remarks,
               instructions: instructions,

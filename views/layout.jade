@@ -20,10 +20,11 @@ html(lang='en')
     link(href='css/bootstrap.css', rel='stylesheet')
     link(href='css/font-awesome.min.css', rel='stylesheet')
     link(href='css/font-awesome-animation.css', rel='stylesheet')
-    link(href='css/style.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet') 
     link(href='assets/style.css', rel='stylesheet')
     link(href='assets/animate/animate.css', rel='stylesheet')
     link(href='assets/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet prefetch', href='http://fonts.googleapis.com/css?family=Open+Sans:600')
     // GOOGLE FONT
     link(href='http://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet', type='text/css')
     // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
@@ -45,7 +46,9 @@ html(lang='en')
             li
               a.external(href='/') HOME
             li
-              a.external(href='/blobs/new') HOTLINES
+              a.external(href='/blobs/') HOTLINES
+            li
+              a.external(href='/login/') LOG IN
     // END NAV SECTION
 
     block content

@@ -9,8 +9,8 @@
 6 silly lifecycle mongodb-sample@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle mongodb-sample@0.0.0~start: mongodb-sample@0.0.0
 8 verbose lifecycle mongodb-sample@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle mongodb-sample@0.0.0~start: PATH: D:\Program Files\Node.js\node_modules\npm\bin\node-gyp-bin;C:\Users\Bea Aira Lee\Downloads\copy\copy\node_modules\.bin;%SystemRoot%\system32\WindowsPowerShell\v1.0\;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\AMD\ATI.ACE\Core-Static;C:\Program Files (x86)\Windows Live\Shared;D:\Program Files\Node.js\;C:\Program Files (x86)\Heroku\bin;C:\Program Files (x86)\git\cmd;C:\Program Files (x86)\Git\cmd;C:\Program Files\Git\cmd;C:\Users\Bea Aira Lee\AppData\Roaming\npm
-10 verbose lifecycle mongodb-sample@0.0.0~start: CWD: C:\Users\Bea Aira Lee\Downloads\copy\copy
+9 verbose lifecycle mongodb-sample@0.0.0~start: PATH: D:\Program Files\Node.js\node_modules\npm\bin\node-gyp-bin;C:\copy\copy\node_modules\.bin;%SystemRoot%\system32\WindowsPowerShell\v1.0\;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\AMD\ATI.ACE\Core-Static;C:\Program Files (x86)\Windows Live\Shared;D:\Program Files\Node.js\;C:\Program Files (x86)\Heroku\bin;C:\Program Files (x86)\git\cmd;C:\Program Files (x86)\Git\cmd;C:\Program Files\Git\cmd;C:\Users\Bea Aira Lee\AppData\Roaming\npm
+10 verbose lifecycle mongodb-sample@0.0.0~start: CWD: C:\copy\copy
 11 silly lifecycle mongodb-sample@0.0.0~start: Args: [ '/d /s /c', 'node ./bin/www' ]
 12 silly lifecycle mongodb-sample@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle mongodb-sample@0.0.0~start: Failed to exec start script
@@ -25,7 +25,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:877:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid mongodb-sample@0.0.0
-16 verbose cwd C:\Users\Bea Aira Lee\Downloads\copy\copy
+16 verbose cwd C:\copy\copy
 17 error Windows_NT 6.1.7601
 18 error argv "D:\\Program Files\\Node.js\\node.exe" "D:\\Program Files\\Node.js\\node_modules\\npm\\bin\\npm-cli.js" "start"
 19 error node v6.9.2

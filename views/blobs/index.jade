@@ -20,8 +20,6 @@ block content
           .col-lg-6
           each blob, i in blobs
             .tm-home-box-3
-              .tm-home-box-3-img-container
-                img.img-responsive(src='#{blob.image}', alt='image', style="width:250px;height:450px;")
               .tm-home-box-3-info
                 p.tm-home-box-3-description
                   | Department: #{blob.department}
@@ -29,12 +27,6 @@ block content
                   | Name: #{blob.name}
                   br
                   | Contact: #{blob.contact}
-                  br
-                  | Email: #{blob.email}
-                  br
-                  | Twitter: #{blob.twitter}
-                  br
-                  | Facebook: #{blob.facebook}
                   br
                   | Description: #{blob.description}
                   br
