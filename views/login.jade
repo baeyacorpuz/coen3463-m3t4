@@ -2,3 +2,20 @@ extends layout
 
 block content
 
+	form(action='action_page.php')
+		.container
+			label
+				b Username
+			input(type='text', placeholder='Enter Username', name='uname', required='')
+			label
+				b Password
+			input(type='password', placeholder='Enter Password', name='psw', required='')
+			button(type='submit') Login
+			input(type='checkbox', checked='checked')
+			|  Remember me
+		.container(style='background-color:#f1f1f1')
+			button.cancelbtn(type='button') Cancel
+			span.psw
+				| Forgot 
+				a(href='#') password?
+
