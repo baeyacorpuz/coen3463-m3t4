@@ -1,0 +1,104 @@
+extends layout
+
+block content
+
+    if (user.role === 'administrator')
+        .col-xs-12
+            div(align='right')
+                a.btn.btn-lg.btn-success(href='/users/add', role='button') Add New User
+    .col-xs-12
+        if(typeof alertMessage !== "undefined")
+            if(!!postError)
+                .alert.alert-danger.alert-dismissable.fade.in
+                    | #{alertMessage}
+                    a.close(href="#", data-dismiss="alert", aria-label="close") &times;
+            else
+                .alert.alert-success.alert-dismissable.fade.in
+                    | #{alertMessage} &nbsp;
+                    a.alert-link(href='/users/#{userData.username}') View Profile
+                    a.close(href="#", data-dismiss="alert", aria-label="close") &times;
+    .col-xs-12
+        form(action='/users/#{userData.username}/edit', method='post')
+            .row
+                .col-md-9
+                    .row
+                        .col-md-12
+                            .card
+                                .card-body
+                                    .sub-title
+                                        | Username *
+                                    div
+                                        input.form-control(name='username', type='text', placeholder='Username', value='#{userData.username}', required='')
+                                    .row
+                                        .col-md-6
+                                            .sub-title
+                                                | First Name
+                                            div
+                                                input.form-control(name='firstName', type='text', placeholder='First Name', value='#{userData.firstName}')
+                                        .col-md-6
+                                            .sub-title
+                                                | Last Name
+                                            div
+                                                input.form-control(name='lastName', type='text', placeholder='Last Name', value='#{userData.lastName}')
+                                    .row
+                                        .col-md-6
+                                            .sub-title
+                                                | Email
+                                            div
+                                                input.form-control(name='email', type='email', placeholder='E-mail', value='#{userData.email}')
+                                        .col-md-6
+                                            .sub-title
+                                                | Website
+                                            div
+                                                input.form-control(name='website', type='text', placeholder='Website (URL)', value='#{userData.website}')
+                                    .sub-title
+                                        | New Password
+                                    div
+                                        input.form-control(name='password', type='password', placeholder='Password', value='')
+                .col-md-3
+                    .row
+                        .col-md-12
+                            .card
+                                .card-header
+                                    .card-title
+                                        .sub-title Publish
+                                .card-body
+                                    div
+                                        ul.list-group
+                                            li.list-group-item
+                                                strong
+                                                    | Created:&nbsp;
+                                                | #{moment(userData.createdAt).format("YYYY-MM-DD HH:mm")}
+                                            li.list-group-item
+                                                strong
+                                                    | Last Updated:&nbsp;
+                                                | #{moment(userData.updatedAt).format("YYYY-MM-DD HH:mm")}
+                                    div(align='right')
+                                        a.btn.btn-default(href='/users/#{userData.username}', role='button') View Profile
+                                        | &nbsp;
+                                        button.btn.btn-primary(name='submit', type='submit') Update
+                        if (user.role === 'administrator')
+                            .col-md-12
+                                .card
+                                    .card-header
+                                        .card-title
+                                            .sub-title Role
+                                    .card-body
+                                        select
+                                            - var roles = ['administrator', 'editor', 'viewer']
+                                            each role in roles
+                                                if userData.role == role
+                                                    option(value='#{role}', selected="true") #{role}
+                                                else
+                                                    option(value='#{role}') #{role}
+                        .col-md-12
+                            .card
+                                .card-header
+                                    .card-title
+                                        .sub-title Profile Image
+                                .card-body
+                                    input.form-control(name='profileImage', type='text', placeholder='Profile Image', value='#{userData.profileImage}')
+                                    if userData.profileImage
+                                        p
+                                            a.thumbnail(href='#{userData.profileImage}', target='_blank')
+                                                img.img-responsive(src='#{userData.profileImage}')

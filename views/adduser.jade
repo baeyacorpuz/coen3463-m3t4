@@ -1,0 +1,109 @@
+extends layout
+
+
+block content
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	.col-xs-12
+		if(typeof alertMessage !== "undefined")
+			.alert.alert-danger.alert-dismissable.fade.in
+				| #{alertMessage}
+				a.close(href="#", data-dismiss="alert", aria-label="close") &times;
+	.col-xs-12
+		form(action='/users/add', method='post')
+			.row
+				.col-md-9
+					.row
+						.col-md-12
+							.card
+								.card-body
+									.sub-title
+										| Username *
+									div
+										input.form-control(name='username', type='text', placeholder='Username', value='', required='')
+									.row
+										.col-md-6
+											.sub-title
+												| First Name
+											div
+												input.form-control(name='firstName', type='text', placeholder='First Name', value='')
+										.col-md-6
+											.sub-title
+												| Last Name
+											div
+												input.form-control(name='lastName', type='text', placeholder='Last Name', value='')
+									.row
+										.col-md-6
+											.sub-title
+												| Email
+											div
+												input.form-control(name='email', type='email', placeholder='E-mail', value='')
+										.col-md-6
+											.sub-title
+												| Website
+											div
+												input.form-control(name='website', type='text', placeholder='Website (URL)', value='')
+									.row
+										.col-md-6
+											.sub-title
+												| Password *
+											div
+												input.form-control(name='password', id='password', type='password', placeholder='Password', value='', required='')
+										.col-md-6
+											.sub-title
+												| Confirm Password *
+											div
+												input.form-control(name='confirmPassword', id='confirmPassword', type='password', placeholder='Password', value='', required='')
+				.col-md-3
+					.row
+						.col-md-12
+							div(align='right')
+								button.btn.btn-lg.btn-success(name='submit', type='submit') Register
+						.col-md-12
+							.card
+								.card-header
+									.card-title
+										.sub-title Role
+								.card-body
+									input.form-control(name='role', type='text', placeholder='Role', value='')
+						.col-md-12
+							.card
+								.card-header
+									.card-title
+										.sub-title Profile Image
+								.card-body
+									input.form-control(name='profileImage', type='text', placeholder='Profile Image', value='')
+
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+
+
+	script(src='plugins/jquery-1.10.2.js')
+	script(src='plugins/bootstrap.js')
+	script(src='js/custom.js')
