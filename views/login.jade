@@ -1,119 +1,38 @@
 doctype html
-//if lt IE 7 
-  html.ie.ie6(lang='en')  
-//if IE 7 
-  html.ie.ie7(lang='en')  
-//if IE 8 
-  html.ie.ie8(lang='en')  
-// [if (gte IE 9)|!(IE)] <!
-html(lang='en')
-  // <![endif]
+html
   head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='')
-    //if IE
-      meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    title RED 4LERT 
-
-
-    link(rel='stylesheet',href='css/font-awesome.min.css')
-    link(rel='stylesheet', href='css/font-awesome-animation.css')
-    link(rel='stylesheet', href='css/style.css') 
-    link(rel='stylesheet', href='assets/style.css')
-    link(rel='stylesheet', href='assets/animate/animate.css')
-    link(rel='stylesheet', href='assets/bootstrap/css/bootstrap.min.css')
-    link(href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600', rel='stylesheet', type='text/css')
-    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css')
-    link(rel='stylesheet', href='css/style.css')
-    // GOOGLE FONT
-    link(href='http://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet', type='text/css')
-    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
-    //if lt IE 9
-      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+    meta(charset='UTF-8')
+    title Login
+    link(rel='stylesheet', href='css/login.css')
   body
-    // NAV SECTION
-    .navbar.navbar-inverse.navbar-fixed-top
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') RED 4LERT
-        .navbar-collapse.collapse
-          ul.nav.navbar-nav.navbar-right
-            li
-              a.external(href='/') HOME
-            li
-              a.external(href='/blobs/') HOTLINES
-            li
-              a.external(href='/login/') LOG IN
-    // END NAV SECTION
-
-      .form
-      ul.tab-group
-        li.tab.active
-          a(href='#signup') Sign Up
-        li.tab
-          a(href='#login') Log In
-      .tab-content
-        #signup
-          h1 Sign Up for Free
-          form(action='/', method='post')
-            .top-row
-              .field-wrap
-                label
-                  | First Name
-                  span.req *
-                input(type='text', required='', autocomplete='off')
-              .field-wrap
-                label
-                  | Last Name
-                  span.req *
-                input(type='text', required='', autocomplete='off')
-            .field-wrap
-              label
-                | Email Address
-                span.req *
-              input(type='email', required='', autocomplete='off')
-            .field-wrap
-              label
-                | Set A Password
-                span.req *
-              input(type='password', required='', autocomplete='off')
-            button.button.button-block(type='submit') Get Started
-        #login
-          h1 Welcome Back!
-          form(action='/', method='post')
-            .field-wrap
-              label
-                | Email Address
-                span.req *
-              input(type='email', required='', autocomplete='off')
-            .field-wrap
-              label
-                | Password
-                span.req *
-              input(type='password', required='', autocomplete='off')
-            p.forgot
-              a(href='#') Forgot Password?
-            button.button.button-block Log In
-
-
-    //FOOTER SECTION
-    #footer
-      | 2017 Module 3 | Software Engineering | Team 4 | CORPUZ | VILLANUEVA
-    // END FOOTER SECTION
-    // JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME
-    // CORE JQUERY
-    script(src='plugins/jquery-1.10.2.js')
-    // BOOTSTRAP CORE SCRIPT
-    script(src='plugins/bootstrap.js')
-    // CUSTOM SCRIPTS
-    script(src='js/custom.js')
+    #wrap
+      #regbar
+        #navthing
+          h2
+            a#loginform(href='#') Login 
+            |  | 
+            a#registerform(href='#register') Register
+          .login
+            .arrow-up
+            .formholder
+              .randompad
+                fieldset
+                  label(name='username') Username:
+                  input(type='username', value='@example')
+                  label(name='password') Password:
+                  input(type='password')
+                  input(type='submit', value='Login')
+          .register
+            .arrow-up
+            .formholder
+              .randompad
+                fieldset
+                  label(name='firstName') First Name:
+                  label(name='lastName') Last Name:
+                  label(name='username') Username:
+                  label(name='email') Email:
+                  label(name='website') Website:
+                  label(name='role') Role:
+                  input(type='radio')
     script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
     script(src='js/index.js')
-

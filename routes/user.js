@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var moment = require('moment');
 
-var defaultProfileImage = 'https://raw.githubusercontent.com/jovanidash21/coen3463-m3t6/master/public/images/profile_images/default.png';
+var defaultProfileImage = '';
 var profileImage;
 var defaultRole  = 'viewer';
 var role;

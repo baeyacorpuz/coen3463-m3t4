@@ -12,7 +12,7 @@ var usersDataSchema = new Schema
         website: {type:String, default: ''},
         profileImage: {
             type:String,
-            default: 'https://raw.githubusercontent.com/jovanidash21/coen3463-m3t6/master/public/images/profile_images/default.png'
+            default: ''
         },
         role: {
             type:String,
