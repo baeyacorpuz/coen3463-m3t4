@@ -2,103 +2,32 @@ extends layout
 
 block content
 
-    if (user.role === 'administrator')
-        .col-xs-12
-            div(align='right')
-                a.btn.btn-lg.btn-success(href='/users/add', role='button') Add New User
-    .col-xs-12
-        if(typeof alertMessage !== "undefined")
-            if(!!postError)
-                .alert.alert-danger.alert-dismissable.fade.in
-                    | #{alertMessage}
-                    a.close(href="#", data-dismiss="alert", aria-label="close") &times;
-            else
-                .alert.alert-success.alert-dismissable.fade.in
-                    | #{alertMessage} &nbsp;
-                    a.alert-link(href='/users/#{userData.username}') View Profile
-                    a.close(href="#", data-dismiss="alert", aria-label="close") &times;
-    .col-xs-12
-        form(action='/users/#{userData.username}/edit', method='post')
-            .row
-                .col-md-9
-                    .row
-                        .col-md-12
-                            .card
-                                .card-body
-                                    .sub-title
-                                        | Username *
-                                    div
-                                        input.form-control(name='username', type='text', placeholder='Username', value='#{userData.username}', required='')
-                                    .row
-                                        .col-md-6
-                                            .sub-title
-                                                | First Name
-                                            div
-                                                input.form-control(name='firstName', type='text', placeholder='First Name', value='#{userData.firstName}')
-                                        .col-md-6
-                                            .sub-title
-                                                | Last Name
-                                            div
-                                                input.form-control(name='lastName', type='text', placeholder='Last Name', value='#{userData.lastName}')
-                                    .row
-                                        .col-md-6
-                                            .sub-title
-                                                | Email
-                                            div
-                                                input.form-control(name='email', type='email', placeholder='E-mail', value='#{userData.email}')
-                                        .col-md-6
-                                            .sub-title
-                                                | Website
-                                            div
-                                                input.form-control(name='website', type='text', placeholder='Website (URL)', value='#{userData.website}')
-                                    .sub-title
-                                        | New Password
-                                    div
-                                        input.form-control(name='password', type='password', placeholder='Password', value='')
-                .col-md-3
-                    .row
-                        .col-md-12
-                            .card
-                                .card-header
-                                    .card-title
-                                        .sub-title Publish
-                                .card-body
-                                    div
-                                        ul.list-group
-                                            li.list-group-item
-                                                strong
-                                                    | Created:&nbsp;
-                                                | #{moment(userData.createdAt).format("YYYY-MM-DD HH:mm")}
-                                            li.list-group-item
-                                                strong
-                                                    | Last Updated:&nbsp;
-                                                | #{moment(userData.updatedAt).format("YYYY-MM-DD HH:mm")}
-                                    div(align='right')
-                                        a.btn.btn-default(href='/users/#{userData.username}', role='button') View Profile
-                                        | &nbsp;
-                                        button.btn.btn-primary(name='submit', type='submit') Update
-                        if (user.role === 'administrator')
-                            .col-md-12
-                                .card
-                                    .card-header
-                                        .card-title
-                                            .sub-title Role
-                                    .card-body
-                                        select
-                                            - var roles = ['administrator', 'editor', 'viewer']
-                                            each role in roles
-                                                if userData.role == role
-                                                    option(value='#{role}', selected="true") #{role}
-                                                else
-                                                    option(value='#{role}') #{role}
-                        .col-md-12
-                            .card
-                                .card-header
-                                    .card-title
-                                        .sub-title Profile Image
-                                .card-body
-                                    input.form-control(name='profileImage', type='text', placeholder='Profile Image', value='#{userData.profileImage}')
-                                    if userData.profileImage
-                                        p
-                                            a.thumbnail(href='#{userData.profileImage}', target='_blank')
-                                                img.img-responsive(src='#{userData.profileImage}')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700', rel='stylesheet', type='text/css')
+    link(href='css/bootstrap-datetimepicker.min.css', rel='stylesheet')
+    link(href='css/flexslider.css', rel='stylesheet')
+    link(href='css/templatemo-style.css', rel='stylesheet')
+
+    .container.contactform.center
+        h2.text-center.wowload.fadeInUp User - Edit
+        p.text-center.wowload.fadeInUp Please observe the correct format in filling out the form:
+        .row.wowload.fadeInLeftBig
+            .col-sm-6.col-sm-offset-3.col-xs-12
+
+                    form(action='/user/#{blob._id}/edit',method='post',name='updateuserData',enctype='application/x-www-form-urlencoded')
+                        p Username: 
+                            input#inputusername(type="username", placeholder="Username", name="username")
+                        p First Name: 
+                            input#inputfirstName(type="text", placeholder="First Name", name="firstName")
+                        p Last Name: 
+                            input#inputlastName(type="text", placeholder="Last Name", name="lastName")
+                        p Email:  
+                            input#inputemail(type="email", placeholder="Email", name="email")
+                        p Website: 
+                            input#inputwebsite(type="text", placeholder="Website", name="website")
+                        p Password:
+                            input#inputPassword(type="password", placeholder="Password", name="password", required="")
+                        p Confirm Password: 
+                            input#inputconfirmPassword(type="password", placeholder="Confirm Password", name="confirmPassword", required="")
+                        button.btn.btn-primary(type="submit")
+                            i.fa.fa-paper-plane
+                            |  Update

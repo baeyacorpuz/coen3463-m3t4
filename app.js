@@ -11,8 +11,9 @@ var db = require('./model/db'),
 var routes = require('./routes/index'),
     blobs = require('./routes/blobs');
     login = require('./routes/login');
-    adduser = require('./routes/adduser');
+    newuser = require('./routes/newuser');
     edituser = require('./routes/edituser');
+    indexuser = require('./routes/indexuser');
 
 //var users = require('./routes/users');
 
@@ -34,8 +35,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/blobs', blobs);
 app.use('/login', login);
-app.use('/adduser', adduser);
+app.use('/newuser', newuser);
 app.use('/edituser', edituser);
+app.use('/indexuser', indexuser);
 
 //app.use('/users', users);
 

@@ -1,0 +1,45 @@
+extends layout
+
+block content
+
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700', rel='stylesheet', type='text/css')
+    link(href='css/bootstrap-datetimepicker.min.css', rel='stylesheet')
+    link(href='css/flexslider.css', rel='stylesheet')
+    link(href='css/templatemo-style.css', rel='stylesheet')
+    tm-tours-box-1-info-right
+        body.tm-gray-bg
+      .container
+        .row
+          .tm-section-header.section-margin-top
+            .col-lg-4.col-md-3.col-sm-3
+              hr
+            .col-lg-4.col-md-6.col-sm-6
+              h2.tm-section-title  HOTLINE
+              a.external(href='blobs/new')
+            .col-lg-4.col-md-3.col-sm-3
+              hr
+          .large-6.large-centered.medium-6.medium-centered.small-10.small-centered.columns
+            h4(style='text-align: center; padding: 16px;')
+              b USERS
+
+              br
+              br
+          .col-md-12
+            table
+              thead
+                tr 
+                  th Username
+                  th First Name
+                  th Last Name
+
+              tbody    
+                each blob, i in blobs
+                  tr
+                    td 
+                      a(href='/user/#{blob._id}')
+                        span #{userData.username}
+                    td #{blob.firstName}
+                    td #{blob.lastName}
+                    td(align='center')
+                      form(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                        input(type='submit', value='DELETE', name='_method')
