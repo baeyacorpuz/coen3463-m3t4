@@ -29,6 +29,7 @@ block content
                   th Instructions
                   th Date and Time
                   th 
+                  th
               tbody    
                   tr
                     td #{blob.department}
@@ -41,3 +42,6 @@ block content
                     td(align='center')
                       form(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
                         input(type='submit', value='DELETE', name='_method')
+                    td(align='center')
+                      form(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                        input(type='submit', value='EDIT', name='_method')

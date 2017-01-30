@@ -112,7 +112,7 @@ router.get('/:username/edit', function(req, res, next) {
                 if(req.user.role === 'administrator'){
                     res.render('users-edit', {
                         user: req.user,
-                        title: 'Update User | MMFF Movies',
+                        title: 'Update User | Hotlines',
                         navBarTitle: 'Update User',
                         userData: userData,
                         moment: moment
@@ -122,7 +122,7 @@ router.get('/:username/edit', function(req, res, next) {
                     if (req.user.username == username){
                         res.render('users-edit', {
                             user: req.user,
-                            title: 'Update Profile | MMFF Movies',
+                            title: 'Update Profile | Hotlines',
                             navBarTitle: 'Update Profile',
                             userData: userData,
                             moment: moment
