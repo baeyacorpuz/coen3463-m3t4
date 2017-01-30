@@ -69,7 +69,7 @@ router.post('/add', function(req, res, next) {
             }
             else
             {
-                res.render('users-add', {
+                res.render('login/#register', {
                     user: req.user,
                     title: 'Add New User | Hotlines',
                     navBarTitle: 'Add New User',
