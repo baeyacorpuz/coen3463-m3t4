@@ -1,4 +1,4 @@
-extends layout
+extends ../layout
 
 block content
 
@@ -14,32 +14,43 @@ block content
             .col-lg-4.col-md-3.col-sm-3
               hr
             .col-lg-4.col-md-6.col-sm-6
-              h2.tm-section-title  USER
+              h2.tm-section-title  HOTLINE
               a.external(href='blobs/new')
             .col-lg-4.col-md-3.col-sm-3
               hr
           .large-6.large-centered.medium-6.medium-centered.small-10.small-centered.columns
             h4(style='text-align: center; padding: 16px;')
-              b USERS
-
+              b National Emergency Hotline
+            p(style='text-align:center;')
+              strong
+                a(style='font-size: 2em; text-decoration: none; color: #27468e;', title='911', href='tel:911') 911
+              br
               br
               br
           .col-md-12
             table
               thead
                 tr 
-                  th Username
-                  th First Name
-                  th Last Name
-
+                  th Department
+                  th Name
+                  th Contact
+                  th Description
+                  th Remarks
+                  th Instructions
+                  th Date and Time
+                  th Delete Data
               tbody    
-                each userData, i in userData
+                each blob, i in blobs
                   tr
                     td 
-                      a(href='/user/#{userData._id}')
-                        span #{userData.username}
-                    td #{userData.firstName}
-                    td #{userData.lastName}	
+                      a(href='/blobs/#{blob._id}')
+                        span #{blob.department}
+                    td #{blob.name}
+                    td #{blob.contact}
+                    td #{blob.description}
+                    td #{blob.remarks}
+                    td #{blob.instructions}
+                    td #{blob.dob}
                     td(align='center')
-                      form(action='/user/#{userData._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                      form(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
                         input(type='submit', value='DELETE', name='_method')

@@ -1,0 +1,41 @@
+extends ../layout
+
+
+block content
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	.container.contactform.center
+		p.text-center.wowload.fadeInUp Fill out the form below for the additional to the List of Philippine Emrgency Hotlines
+		p.text-center.wowload.fadeInUp Please observe the correct format in filling out the form:
+		.row.wowload.fadeInLeftBig
+			.col-sm-6.col-sm-offset-3.col-xs-12
+				form#formAddBlob(name="addblob",method="post",action="/blobs")
+					p Department: 
+							input#inputDepartment(type="text", placeholder="Enter corresponding value", name="department")
+					p Name: 
+							input#inputName(type="text", placeholder="Enter corresponding value", name="name")
+					p Contact: 
+							input#inputContact(type="text", placeholder="Enter corresponding value", name="contact")
+					p Description:  
+							input#inputdescription(type="text", placeholder="Enter corresponding value", name="description")
+					p Remarks: 
+							input#inputRemarks(type="text", placeholder="Enter corresponding value", name="remarks")
+					p Instructions:
+							input#inputInstructions(type="text", placeholder="Enter corresponding value", name="instructions")
+					p Date and Time: 
+							input#inputDob(type="date", name="dob")
+					button.btn.btn-primary(type="submit")
+						i.fa.fa-paper-plane
+						|  Submit
+	br
+	br
+
+
+	script(src='plugins/jquery-1.10.2.js')
+	script(src='plugins/bootstrap.js')
+	script(src='js/custom.js')

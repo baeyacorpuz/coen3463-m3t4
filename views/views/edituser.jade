@@ -1,0 +1,33 @@
+extends layout
+
+block content
+
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700', rel='stylesheet', type='text/css')
+    link(href='css/bootstrap-datetimepicker.min.css', rel='stylesheet')
+    link(href='css/flexslider.css', rel='stylesheet')
+    link(href='css/templatemo-style.css', rel='stylesheet')
+
+    .container.contactform.center
+        h2.text-center.wowload.fadeInUp User - Edit
+        p.text-center.wowload.fadeInUp Please observe the correct format in filling out the form:
+        .row.wowload.fadeInLeftBig
+            .col-sm-6.col-sm-offset-3.col-xs-12
+
+                    form(action='/user/#{blob._id}/edit',method='post',name='updateuserData',enctype='application/x-www-form-urlencoded')
+                        p Username: 
+                            input#inputusername(type="username", placeholder="Username", name="username")
+                        p First Name: 
+                            input#inputfirstName(type="text", placeholder="First Name", name="firstName")
+                        p Last Name: 
+                            input#inputlastName(type="text", placeholder="Last Name", name="lastName")
+                        p Email:  
+                            input#inputemail(type="email", placeholder="Email", name="email")
+                        p Website: 
+                            input#inputwebsite(type="text", placeholder="Website", name="website")
+                        p Password:
+                            input#inputPassword(type="password", placeholder="Password", name="password", required="")
+                        p Confirm Password: 
+                            input#inputconfirmPassword(type="password", placeholder="Confirm Password", name="confirmPassword", required="")
+                        button.btn.btn-primary(type="submit")
+                            i.fa.fa-paper-plane
+                            |  Update

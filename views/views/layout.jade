@@ -1,0 +1,68 @@
+doctype html
+//if lt IE 7 
+  html.ie.ie6(lang='en')  
+//if IE 7 
+  html.ie.ie7(lang='en')  
+//if IE 8 
+  html.ie.ie8(lang='en')  
+// [if (gte IE 9)|!(IE)] <!
+html(lang='en')
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    //if IE
+      meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title RED 4LERT 
+
+
+    link(rel='stylesheet', href='/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/css/font-awesome-animation.css')
+    link(rel='stylesheet', href='/css/style.css') 
+    link(rel='stylesheet', href='/assets/style.css')
+    link(rel='stylesheet', href='/assets/animate/animate.css')
+    link(rel='stylesheet', href='/assets/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet prefetch', href='http://fonts.googleapis.com/css?family=Open+Sans:600')
+    // GOOGLE FONT
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet', type='text/css')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+  body
+    // NAV SECTION
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') RED 4LERT
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a.external(href='/') HOME
+            li
+              a.external(href='/blobs/') HOTLINES
+            li
+              a.external(href='/login/') LOG IN
+            li
+              a.external(href='/newuser/') REGISTER
+    // END NAV SECTION
+
+    block content
+
+    // FOOTER SECTION
+    #footer
+      | 2017 Module 3 | Software Engineering | Team 4 | CORPUZ | VILLANUEVA
+    // END FOOTER SECTION
+    // JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME
+    // CORE JQUERY
+    script(src='/plugins/jquery-1.10.2.js')
+    // BOOTSTRAP CORE SCRIPT
+    script(src='/plugins/bootstrap.js')
+    // CUSTOM SCRIPTS
+    script(src='/js/custom.js')

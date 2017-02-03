@@ -6,6 +6,7 @@ block content
     link(href='css/bootstrap-datetimepicker.min.css', rel='stylesheet')
     link(href='css/flexslider.css', rel='stylesheet')
     link(href='css/templatemo-style.css', rel='stylesheet')
+    link(href='blobs/css1/style.css', rel='stylesheet')
     tm-tours-box-1-info-right
         body.tm-gray-bg
       .container
@@ -43,5 +44,4 @@ block content
                       form(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
                         input(type='submit', value='DELETE', name='_method')
                     td(align='center')
-                      form(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
-                        input(type='submit', value='EDIT', name='_method')
+                      a.btn(href='/blobs/#{blob._id}/edit') EDIT

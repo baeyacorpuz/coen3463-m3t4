@@ -14,7 +14,7 @@ block content
             .col-lg-4.col-md-3.col-sm-3
               hr
             .col-lg-4.col-md-6.col-sm-6
-              h2.tm-section-title  USER
+              h2.tm-section-title  HOTLINE
               a.external(href='blobs/new')
             .col-lg-4.col-md-3.col-sm-3
               hr
@@ -33,13 +33,13 @@ block content
                   th Last Name
 
               tbody    
-                each userData, i in userData
+                each blob, i in blobs
                   tr
                     td 
-                      a(href='/user/#{userData._id}')
+                      a(href='/user/#{blob._id}')
                         span #{userData.username}
-                    td #{userData.firstName}
-                    td #{userData.lastName}	
+                    td #{blob.firstName}
+                    td #{blob.lastName}
                     td(align='center')
-                      form(action='/user/#{userData._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                      form(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
                         input(type='submit', value='DELETE', name='_method')

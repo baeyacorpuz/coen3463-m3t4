@@ -14,16 +14,9 @@ block content
             .col-lg-4.col-md-3.col-sm-3
               hr
             .col-lg-4.col-md-6.col-sm-6
-              h2.tm-section-title  HOTLINE
-              a.external(href='blobs/new')
+              h2.tm-section-title HOTLINES
             .col-lg-4.col-md-3.col-sm-3
               hr
-          .large-6.large-centered.medium-6.medium-centered.small-10.small-centered.columns
-            h4(style='text-align: center; padding: 16px;')
-              b National Emergency Hotline
-            p(style='text-align:center;')
-              strong
-                a(style='font-size: 2em; text-decoration: none; color: #27468e;', title='911', href='tel:911') 911
           .col-md-12
             table
               thead
@@ -35,13 +28,11 @@ block content
                   th Remarks
                   th Instructions
                   th Date and Time
-                  th Delete Data
+                  th 
+                  th
               tbody    
-                each blob, i in blobs
                   tr
-                    td 
-                      a(href='/blobs/#{blob._id}')
-                        span #{blob.department}
+                    td #{blob.department}
                     td #{blob.name}
                     td #{blob.contact}
                     td #{blob.description}
@@ -51,3 +42,6 @@ block content
                     td(align='center')
                       form(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
                         input(type='submit', value='DELETE', name='_method')
+                    td(align='center')
+                      form(action='/blobs/#{blob._id}/edit',method='get')
+                        input(type='submit', value='EDIT', name='_method')

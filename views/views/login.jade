@@ -1,0 +1,34 @@
+extends layout
+
+
+block content
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  .container.contactform.center
+    p.text-center.wowload.fadeInUp Fill out the form below
+    p.text-center.wowload.fadeInUp Please observe the correct format in filling out the form:
+    .row.wowload.fadeInLeftBig
+      .col-sm-6.col-sm-offset-3.col-xs-12
+        form#formusersData(name="addusersData",method="post",action="/user")
+          p Username: 
+              input#inputusername(type="username", placeholder="Username", name="username")
+          p Password:
+              input#inputPassword(type="password", placeholder="Password", name="password", required="")
+          button.btn.btn-primary(type="submit")
+            i.fa.fa-paper-plane
+            |  Login
+  br
+  br
+  br
+  br
+  br
+
+
+  script(src='plugins/jquery-1.10.2.js')
+  script(src='plugins/bootstrap.js')
+  script(src='js/custom.js')
