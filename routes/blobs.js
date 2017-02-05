@@ -3,6 +3,8 @@ var express = require('express'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override');
+    router = express.Router();
+    restify = require('express-restify-mongoose');
 
 
 router.use(bodyParser.urlencoded({ extended: true }))

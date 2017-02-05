@@ -5,7 +5,6 @@ var timestamps = require('mongoose-timestamp');
 var router = express.Router();
 var restify = require('express-restify-mongoose');
 
-
 var usersDataSchema = new Schema
 (
     {
@@ -35,3 +34,7 @@ usersDataSchema.plugin(timestamps);
 usersData = mongoose.model('usersData', usersDataSchema);
 
 restify.serve(router, usersData);
+
+app.listen(3000, () => {
+  console.log('Express server listening on port 3000')
+})
