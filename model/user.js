@@ -2,6 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 var timestamps = require('mongoose-timestamp');
+var router = express.Router();
+var restify = require('express-restify-mongoose');
+
 
 var usersDataSchema = new Schema
 (
@@ -30,3 +33,5 @@ usersDataSchema.plugin(passportLocalMongoose);
 usersDataSchema.plugin(timestamps);
 
 usersData = mongoose.model('usersData', usersDataSchema);
+
+restify.serve(router, usersData);
