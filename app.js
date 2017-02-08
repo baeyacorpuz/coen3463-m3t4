@@ -4,25 +4,23 @@ var express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    passport = require('passport');
+    session = require('express-session'),
+    passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy;
 
 var db = require('./model/db'),
     blob = require('./model/blobs'),
     user = require('./model/user');
 
 var routes = require('./routes/index'),
-    blobs = require('./routes/blobs');
-    login = require('./routes/login');
-    newuser = require('./routes/newuser');
-    edituser = require('./routes/edituser');
+    blobs = require('./routes/blobs'),
+    login = require('./routes/login'),
+    newuser = require('./routes/newuser'),
+    edituser = require('./routes/edituser'),
     indexuser = require('./routes/indexuser');
+ var auth = require('./routes/auth');
 
 //var users = require('./routes/users');
-
-passport.use(user.createStrategy());
-
-passport.serializeUser(user.serializeUser());
-passport.deserializeUser(user.deserializeUser());
 
 var app = express();
 
@@ -38,6 +36,25 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+var User = require('./model/user');
+passport.use(User.createStrategy());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 
 app.use('/', routes);
 app.use('/blobs', blobs);
@@ -45,6 +62,8 @@ app.use('/login', login);
 app.use('/newuser', newuser);
 app.use('/edituser', edituser);
 app.use('/indexuser', indexuser);
+app.use('/user', user);
+app.use('/auth', auth);
 
 //app.use('/users', users);
 

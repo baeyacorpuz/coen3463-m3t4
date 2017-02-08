@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 var timestamps = require('mongoose-timestamp');
 
-var usersDataSchema = new Schema
+var user = new Schema
 (
     {
         username: {type:String, default: ''},
@@ -26,7 +26,7 @@ var usersDataSchema = new Schema
     }
 );
 
-usersDataSchema.plugin(passportLocalMongoose);
-usersDataSchema.plugin(timestamps);
+user.plugin(passportLocalMongoose);
+user.plugin(timestamps);
 
-usersData = mongoose.model('usersData', usersDataSchema);
+module.exports = mongoose.model('user', user);
