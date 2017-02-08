@@ -1,17 +1,13 @@
-var passportLocalMongoose = require('passport-local-mongoose');
-    passport = require('passport')
-    LocalStrategy = require('passport-local').Strategy;
-    express = require('express'),
+var express = require('express'),
     path = require('path'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser');
-    passport = require('passport')
+    bodyParser = require('body-parser'),
+    passport = require('passport');
 
-
-var db = require('./model/db');
-    blob = require('./model/blobs');
+var db = require('./model/db'),
+    blob = require('./model/blobs'),
     user = require('./model/user');
 
 var routes = require('./routes/index'),
@@ -21,15 +17,12 @@ var routes = require('./routes/index'),
     edituser = require('./routes/edituser');
     indexuser = require('./routes/indexuser');
 
-var passport = passport();
+//var users = require('./routes/users');
 
-passport.use(new LocalStrategy(User.authenticate()));
-//passport.use(User.createStrategy());
+passport.use(user.createStrategy());
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
-var users = require('./routes/users');
+passport.serializeUser(user.serializeUser());
+passport.deserializeUser(user.deserializeUser());
 
 var app = express();
 
@@ -44,13 +37,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(passport.initialize());
-
-//passport config
-//passport.use(new LocalStrategy(User.authenticate()));
-
-//passport.serializeUser(User.serializeUser());
-//passport.deserializeUser(User.deserializeUser());
 
 
 app.use('/', routes);
