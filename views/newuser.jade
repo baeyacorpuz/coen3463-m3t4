@@ -13,12 +13,16 @@ block content
     .row.wowload.fadeInLeftBig
       .col-sm-6.col-sm-offset-3.col-xs-12
         form#formusersData(name="addusersData",method="post",action="/auth/add")
+          p First-Name:
+              input#firstName(type="firstName", placeholder="First Name", name="firstName", required="")
+          p Last-Name:
+              input#lastName(type="lastName", placeholder="Last Name", name="firstName", required="")
+          p Email:
+              input#email(type="email", placeholder="Email", name="email", required="")
           p Username: 
               input#inputusername(type="username", placeholder="Username", name="username", required="", autocomplete="off")
           p Password:
               input#inputPassword(type="password", placeholder="Password", name="password", required="", autocomplete="off")
-          p Confirm Password: 
-              input#inputconfirmPassword(type="password", placeholder="Confirm Password", name="confirmPassword", required="", autocomplete="off")
           button.btn.btn-primary(type="submit")
             i.fa.fa-paper-plane
             |  Submit
