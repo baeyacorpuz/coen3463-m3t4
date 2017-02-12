@@ -1,25 +1,38 @@
+
 extends layout
 
-block content
-    #home-sec
-      #home.container
-        .row.text-center
-          .col-md-12
-            span.head-main Get the latest!
-            h2.head-sub-main Be updated, be safe!
 
-    #about.container.spacer.about
-      h2.text-center.wowload.fadeInUp Philippine Emergency Hotlines
-      .row
-        .col-sm-6.wowload.fadeInLeft
-          h4
-            i.fa.fa-database
-            |  Database
-          p
-            | This is the list of the country's emergency hotlines from different departments, organizations and regions.
-        .col-sm-6.wowload.fadeInRight
-          h4
-            i.fa.fa-code
-            |  Frontend & Backend Development
-          p
-            | Team 4 develop a CRUD Node.js webapp using Express, Jade, and MongdoDB as the database.
+block content
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  .container.contactform.center
+    p.text-center.wowload.fadeInUp Fill out the form below
+    p.text-center.wowload.fadeInUp Please observe the correct format in filling out the form:
+    .row.wowload.fadeInLeftBig
+      .col-sm-6.col-sm-offset-3.col-xs-12
+        form#formusersData(name="addusersData",method="post",action="/auth/login")
+          p Username: 
+              input#inputusername(type="username", placeholder="Username", name="username")
+          p Password:
+              input#inputPassword(type="password", placeholder="Password", name="password", required="")
+          button.btn.btn-primary(type="submit")
+            i.fa.fa-paper-plane
+            |  Login
+    p.text-center.wowload.fadeInUp If you are not a member, go directly to this 
+      a.external(href = '/newuser')
+       | page
+  br
+  br
+  br
+  br
+  br
+
+
+  script(src='plugins/jquery-1.10.2.js')
+  script(src='plugins/bootstrap.js')
+  script(src='js/custom.js')

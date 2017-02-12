@@ -6,11 +6,13 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
     passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy;
+    LocalStrategy = require('passport-local').Strategy,
+    /* restify = require('express-restify-mongoose'), */
+    router = express.Router();
 
 var db = require('./model/db'),
     blob = require('./model/blobs'),
-    user = require('./model/user');
+    User = require('./model/user');
 
 var routes = require('./routes/index'),
     blobs = require('./routes/blobs'),
@@ -18,6 +20,7 @@ var routes = require('./routes/index'),
     newuser = require('./routes/newuser'),
     edituser = require('./routes/edituser'),
     indexuser = require('./routes/indexuser');
+    home = require('./routes/home');
  var auth = require('./routes/auth');
 
 //var users = require('./routes/users');
@@ -35,7 +38,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(router);
 
+/*
+restify.serve(router,blob);
+restify.serve(router,User);
+*/
 app.use(session({
     secret: 'secret',
     resave: true,
@@ -45,12 +53,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-var User = require('./model/user');
 passport.use(User.createStrategy());
-
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -62,8 +65,8 @@ app.use('/login', login);
 app.use('/newuser', newuser);
 app.use('/edituser', edituser);
 app.use('/indexuser', indexuser);
-app.use('/user', user);
 app.use('/auth', auth);
+app.use('/home', home);
 
 //app.use('/users', users);
 

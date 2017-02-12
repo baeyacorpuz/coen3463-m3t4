@@ -8,29 +8,27 @@ router.post('/add', function(req, res, next) {
     var add = {
         username: req.body.username,
         firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
+        lastname: req.body.lastname
     };
     User.register(new User(add), req.body.password, function(err, account) {
       if(err) {
-        return res.render('index', {account: account});
+        return res.render('/newuser', {account: account});
       }
-
-      req.login(account, function(err) {
-        res.redirect('/user');
-      });
+      else {
+      	res.redirect('/home');
+      }
     })
   })
 
 router.get('/login', function(req, res, next) {
-  res.render('/', {user: req.user});
+  res.render('login', {user: req.user});
 });
 
 
 router.post('/login',
   passport.authenticate('local', { failureRedirect: '/'}),
   function(req, res) {
-    res.redirect('/user');
+    res.redirect('/home');
   });
 
 router.all('/logout', function(req, res, next) {
