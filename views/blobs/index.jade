@@ -14,10 +14,17 @@ block content
             .col-lg-4.col-md-3.col-sm-3
               hr
             .col-lg-4.col-md-6.col-sm-6
-              h2.tm-section-title  HOTLINE
-              a.external(href='blobs/new')
+              h2.tm-section-title  Hotline
             .col-lg-4.col-md-3.col-sm-3
               hr
+          h3.h3 number of entry:
+            span#totalCount
+          h3.h3 Search for Hotlin3e
+            .flexsearch
+              .flexsearch--wrapper
+                form.flexsearch--form(method= 'post', action= '../blobs/', onsubmit= 'getSearch()')
+                  .flexsearch--input-wrapper
+                    input.flexsearch--input(type='search', placeholder='search')
           .large-6.large-centered.medium-6.medium-centered.small-10.small-centered.columns
             h4(style='text-align: center; padding: 16px;')
               b National Emergency Hotline
@@ -31,23 +38,7 @@ block content
                   th Department
                   th Name
                   th Contact
-                  th Description
-                  th Remarks
-                  th Instructions
-                  th Date and Time
-                  th Delete Data
-              tbody    
-                each blob, i in blobs
-                  tr
-                    td 
-                      a(href='/blobs/#{blob._id}')
-                        span #{blob.department}
-                    td #{blob.name}
-                    td #{blob.contact}
-                    td #{blob.description}
-                    td #{blob.remarks}
-                    td #{blob.instructions}
-                    td #{blob.dob}
-                    td(align='center')
-                      form(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
-                        input(type='submit', value='DELETE', name='_method')
+                  th
+              tbody#table-body
+
+              script(type="text/javascript", src="js/main.js")

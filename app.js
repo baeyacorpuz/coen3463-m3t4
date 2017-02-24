@@ -4,15 +4,21 @@ var express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
+    mongoose = require('mongoose'),
     session = require('express-session'),
-    passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy,
-    /* restify = require('express-restify-mongoose'), */
-    router = express.Router();
+    passport = require('passport'),   
+    flash = require('connect-flash'),
+    LocalStrategy = require('passport-local').Strategy;
+    
+
+const methodOverride = require('method-override'),
+      restify = require('express-restify-mongoose'),
+      router = express.Router();
 
 var db = require('./model/db'),
-    blob = require('./model/blobs'),
+    Blob = require('./model/blobs'),
     User = require('./model/user');
+
 
 var routes = require('./routes/index'),
     blobs = require('./routes/blobs'),
@@ -37,26 +43,27 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride())
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(router);
-
-/*
-restify.serve(router,blob);
-restify.serve(router,User);
-*/
 app.use(session({
     secret: 'secret',
     resave: true,
     saveUninitialized: false
-}));
+})); 
 
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(flash());
+
+var User = require('./model/user');
 passport.use(User.createStrategy());
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+restify.serve(router, Blob);
+app.use(router);
 
 
 app.use('/', routes);
